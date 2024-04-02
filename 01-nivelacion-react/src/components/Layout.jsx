@@ -11,7 +11,7 @@ const Layout = ({children}) => {
             </main>
 
             <footer style={{marginTop:"60px"}}>
-                &copy; Oscar Govea KSP- {new Date().getFullYear()}
+                &copy; Oscar Govea KSP - {new Date().getFullYear()}
             </footer>
         </>
     )
