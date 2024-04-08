@@ -4,7 +4,8 @@ const Dotenv = require('dotenv-webpack');
 const deps = require("./package.json").dependencies;
 module.exports = (_, argv) => ({
   output: {
-    publicPath: "http://localhost:5173/",
+    //publicPath: "http://localhost:5173/",
+    publicPath: "https://comforting-phoenix-ff1d2f.netlify.app/",
   },
 
   resolve: {
@@ -44,8 +45,10 @@ module.exports = (_, argv) => ({
       name: "host",
       filename: "remoteEntry.js",
       remotes: {
-        navbar:"navbar@http://localhost:5174/remoteEntry.js",
-        counterReact:"counter_mf@http://localhost:5175/remoteEntry.js"
+        //navbar:"navbar@http://localhost:5174/remoteEntry.js",
+        //counterReact:"counter_mf@http://localhost:5175/remoteEntry.js"
+        navbar:"navbar@https://capable-unicorn-380729.netlify.app/remoteEntry.js",
+        counterReact:"counter_mf@https://dulcet-daifuku-b99006.netlify.app/remoteEntry.js"
       },
       exposes: {},
       shared: {

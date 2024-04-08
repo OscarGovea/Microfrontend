@@ -4,7 +4,8 @@ const Dotenv = require('dotenv-webpack');
 const deps = require("./package.json").dependencies;
 module.exports = (_, argv) => ({
   output: {
-    publicPath: "http://localhost:5175/",
+    //publicPath: "http://localhost:5175/",
+    publicPath: "https://dulcet-daifuku-b99006.netlify.app/",
   },
 
   resolve: {
