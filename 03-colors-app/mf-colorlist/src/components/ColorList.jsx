@@ -1,7 +1,7 @@
 import React from 'react'
 import Swal from "sweetalert2"
 
-const ColorList = ({colorsList =[]}) => {
+const ColorList = ({colorsList =[], handleClickClearColors}) => {
 
     //const colorsList = ["#5e5d5d", "#c01e1e","#0999bd"]
 
@@ -22,6 +22,14 @@ const ColorList = ({colorsList =[]}) => {
     return (
         <>
             <h3 className='text-center'>Color list</h3>
+
+            {colorsList.length > 0 && 
+                (<button 
+                    onClick={handleClickClearColors} 
+                    className='btn btn-danger my-4 w-100'>Clear list</button>
+                )
+            }
+
             <div className='list-group text-center'>
                 {colorsList.length > 0 ? 
                     (

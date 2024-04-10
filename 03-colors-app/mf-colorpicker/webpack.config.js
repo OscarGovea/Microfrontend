@@ -4,7 +4,10 @@ const Dotenv = require('dotenv-webpack');
 const deps = require("./package.json").dependencies;
 module.exports = (_, argv) => ({
   output: {
-    publicPath: "http://localhost:3001/",
+    //publicPath: "https://ogovea-mf-colorpicker.netlify.app/",
+    publicPath: argv.mode === "development" 
+      ? "http://localhost:3001/"
+      : "https://ogovea-mf-colorpicker.netlify.app/"
   },
 
   resolve: {
