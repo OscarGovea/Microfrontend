@@ -4,7 +4,7 @@ const Dotenv = require('dotenv-webpack');
 const deps = require("./package.json").dependencies;
 module.exports = (_, argv) => ({
   output: {
-    publicPath: "http://localhost:8080/",
+    publicPath: "http://localhost:8082/",
   },
 
   resolve: {
@@ -12,7 +12,7 @@ module.exports = (_, argv) => ({
   },
 
   devServer: {
-    port: 8080,
+    port: 8082,
     historyApiFallback: true,
   },
 
@@ -41,15 +41,12 @@ module.exports = (_, argv) => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "host",
+      name: "mf_counter",
       filename: "remoteEntry.js",
-      remotes: {
-        "mf_navbar":"mf_navbar@http://localhost:8081/remoteEntry.js",
-        "mf_counter":"mf_counter@http://localhost:8082/remoteEntry.js",
-        "mf_cards":"mf_cards@http://localhost:8083/remoteEntry.js",
-        "mf_detalle_personaje":"mf_detalle_personaje@http://localhost:8084/remoteEntry.js"
+      remotes: {},
+      exposes: {
+        "./Counter": "./src/components/Counter.jsx"
       },
-      exposes: {},
       shared: {
         ...deps,
         react: {
